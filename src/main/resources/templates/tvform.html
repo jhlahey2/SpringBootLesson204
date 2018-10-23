@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>TV Form</title>
+</head>
+<body>
+    <form action="#"
+          th:action="@{/tvform}"
+          th:object="${tvshow}"
+          method="post">
+        ID:     <input type="number" th:field="*{id}" />
+        <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span><br /><br />
+        Name:     <input type="text" th:field="*{name}" />
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span><br /><br />
+        Type:     <input type="text" th:field="*{type}" />
+        <span th:if="${#fields.hasErrors('type')}" th:errors="*{type}"></span><br /><br />
+        Description:     <textarea rows="3" th:field="*{description}" />
+        <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span><br /><br />
+        <input type="submit" value="Submit" />
+    </form>
+</body>
+</html>
